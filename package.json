@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt generate",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.8"
+  },
+  "dependencies": {
+    "@splidejs/vue-splide": "^0.6.7",
+    "http-proxy": "^1.18.1",
+    "three": "^0.143.0",
+    "three-orbit-controls": "^82.1.0"
+  }
+}
