@@ -289,7 +289,6 @@ body {
     --text: white;
     --action-primary: #ffc300;
     --action-secondary: #fec45d;
-
     --timing-animation: .3s;
 }
 
