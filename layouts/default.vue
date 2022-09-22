@@ -290,6 +290,8 @@ body {
     --action-primary: #ffc300;
     --action-secondary: #fec45d;
     --timing-animation: .3s;
+    --vc-clr-primary: #ffc300;
+    --vc-clr-secondary: #ffe4b5;
 }
 
 

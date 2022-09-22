@@ -1,37 +1,42 @@
 <template>
     <div class="container">
-        <Splide class="carousel" @splide:move="move" :options="{ rewind: true, height: '35rem', perPage: 1 }"
-            aria-label="My Favorite Images">
-            <SplideSlide v-for="(slide, i) of projects" :key="slide">
-                <div v-if="i == index || showSlide">
-                    <h1 class="title">{{ slide.title }}</h1>
-                    <div class="contentContainer">
-                        <div class="placeHolder"></div>
-                        <div class="textContainer">
-                            <p>{{ slide.motivation }}</p>
-                            <p>{{ slide.description }}</p>
-                            <div class="techContainer">
-                                <div v-for="tech of slide.tech" :key="tech">
-                                    {{ tech.title }}
-                                    <img class="techLogo" :src="`/assets/logos/${tech.logo}`" alt="logo">
-                                </div>
+        <carousel class="carousel">
+            <slide v-for="slide of projects" class="slide" :key="slide">
+                <h1 class="title">{{ slide.title }}</h1>
+                <div class="contentContainer">
+                    <div class="placeHolder">
+                        <img class="techLogo" v-for="i in 3" :key="i" :src="`/assets/projects/${slide.images}${i}.png`"
+                            alt="illustration of the project">
+
+                    </div>
+                    <div class="textContainer">
+                        <p>{{ slide.motivation }}</p>
+                        <p>{{ slide.description }}</p>
+                        <div class="techContainer">
+                            <div v-for="tech of slide.tech" class="tech" :key="tech">
+                                <p>{{ tech.title }}</p>
+                                <img class="techLogo" :src="`/assets/logos/${tech.logo}`" alt="logo">
                             </div>
                         </div>
                     </div>
                 </div>
-            </SplideSlide>
-        </Splide>
+            </slide>
+            <template #addons>
+                <navigation />
+                <pagination />
+            </template>
+        </carousel>
     </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 //TODO verif on unmounted ou qqch comme ca, et n'afficher qu'un slide dans ce cas
 
 export default {
     components: {
-        Splide, SplideSlide
+        Carousel, Slide, Pagination, Navigation
     },
     data() {
         return {
@@ -46,7 +51,8 @@ export default {
                         { title: 'VueJS', logo: 'vuejs.png' },
                         { title: 'Ionic', logo: 'ionic.png' },
                         { title: 'Capacitor', logo: 'capacitor.png' }
-                    ]
+                    ],
+                    images: "Adoka_mini"
                 },
                 {
                     'title': 'Application mobile Cliday',
@@ -58,38 +64,17 @@ export default {
                     tech: [
                         { title: 'Django', logo: 'django.png' },
                         { title: 'Flutter', logo: 'flutter.png' }
-                    ]
+                    ],
+                    images: "Cliday"
                 },
             ]
         }
     },
-
-    setup() {
-        const showSlide = ref(true)
-        const index = ref(0)
-
-        function move(_, newIndex) {
-            index.value = newIndex
-            console.log(index.value)
-        }
-
-        onBeforeUnmount(() => {
-            showSlide.value = false
-            console.log("TEST")
-        })
-
-        return {
-            move,
-            showSlide,
-            index
-        }
-    }
 }
 </script>
 
 <style scoped>
 .title {
-
     text-align: center;
 }
 
@@ -104,7 +89,13 @@ export default {
 .placeHolder {
     width: 100%;
     height: 100%;
-    background-color: violet;
+}
+
+.placeHolder img {
+    width: 30%;
+    height: auto;
+    border: 1px solid var(--action-primary);
+    margin-left: 20px;
 }
 
 .textContainer {
@@ -136,5 +127,18 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.slide {
+    display: block;
+}
+
+.tech {
+    display: flex;
+}
+
+.tech p {
+    margin: 0;
+    margin-right: 10px;
 }
 </style>
