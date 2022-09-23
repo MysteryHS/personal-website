@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <carousel class="carousel">
+        <carousel class="carousel" ref="myCarousel">
             <slide v-for="slide of projects" class="slide" :key="slide">
                 <h1 class="title">{{ slide.title }}</h1>
                 <div class="contentContainer">
@@ -32,11 +32,21 @@
 <script>
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-//TODO verif on unmounted ou qqch comme ca, et n'afficher qu'un slide dans ce cas
 
 export default {
     components: {
         Carousel, Slide, Pagination, Navigation
+    },
+    setup() {
+        const myCarousel = ref(null);
+        setTimeout(() => {
+            if (myCarousel.value) {
+                myCarousel.value.restartCarousel()
+            }
+        }, 600)
+        return {
+            myCarousel
+        }
     },
     data() {
         return {
