@@ -13,6 +13,5 @@ export default defineNuxtPlugin(({ vueApp }) => {
             fr,
         }
     })
-
     vueApp.use(i18n)
 })

@@ -34,11 +34,10 @@
   
 <script>
 import Card from '~/components/Card.vue';
-import Toggle from '~/components/Toggle.vue'
 
 export default {
     name: "IndexPage",
-    components: { Card, Toggle },
+    components: { Card },
     data() {
         return {
             isFrench: true,
