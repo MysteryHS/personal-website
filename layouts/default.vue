@@ -1,5 +1,9 @@
 <template>
     <div class="main" @mouseup="stopDrag()" @mousemove="drag($event)">
+        <div class="language">
+            <span class="fr lang" :class="{filter: !isFrench}" @click="onToggleLanguage('fr')">🇫🇷</span>
+            <span class="en lang" :class="{filter: isFrench}" @click="onToggleLanguage('en')">🇬🇧</span>
+        </div>
         <div class="dropZone" id="drop">
             <slot />
         </div>
@@ -30,12 +34,14 @@
   
 <script>
 import Card from '~/components/Card.vue';
+import Toggle from '~/components/Toggle.vue'
 
 export default {
     name: "IndexPage",
-    components: { Card },
+    components: { Card, Toggle },
     data() {
         return {
+            isFrench: true,
             cardWidth: 0,
             idRemoved: -1,
             idSelected: -1,
@@ -106,9 +112,15 @@ export default {
         },
         marginEdge: function () {
             return this.convertRemToPixels(-1) * 3 + this.cardWidth
-        },
+        }
     },
     methods: {
+        onToggleLanguage(param) {
+            if (this.$i18n.locale != param) {
+                this.isFrench = !this.isFrench
+                this.$i18n.locale = param
+            }
+        },
         convertRemToPixels(rem) {
             return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
         },
@@ -302,6 +314,27 @@ body {
     justify-content: space-between;
     background-color: var(--primary);
     overflow: hidden;
+}
+
+.language {
+    font-size: xx-large;
+    user-select: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.lang {
+    margin: 10px;
+    transition: filter 1s;
+}
+
+.filter {
+    filter: grayscale(100%);
+}
+
+.noFilter {
+    filter: grayscale(0%);
 }
 
 .dropZone {
