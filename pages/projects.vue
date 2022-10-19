@@ -7,7 +7,6 @@
                     <div class="placeHolder">
                         <img class="techLogo" v-for="i in 3" :key="i" :src="`/assets/projects/${slide.images}${i}.png`"
                             alt="illustration of the project">
-
                     </div>
                     <div class="textContainer">
                         <p>{{ $t(`projects.${index}.motivation`) }}</p>
