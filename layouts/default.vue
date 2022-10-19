@@ -53,35 +53,27 @@ export default {
             cards: [
                 {
                     id: 1,
-                    title: 'Projets',
                     logo: 'briefcase.png',
                     route: '/projects',
                     art: 'exp.svg',
-                    desc: 'Parcourez mes projets professionnels et personnels'
                 },
                 {
                     id: 2,
-                    title: 'Scolarité',
                     logo: 'studies.png',
                     route: '/school',
                     art: 'school.svg',
-                    desc: 'Découvrez mon parcours scolaires et mes diplômes'
                 },
                 {
                     id: 3,
-                    title: 'Compétences',
                     logo: 'coding.png',
                     route: '/skills',
                     art: 'dev.svg',
-                    desc: 'Explorez mes skills techniques et personnels'
                 },
                 {
                     id: 4,
-                    title: 'Informations',
                     logo: 'profil.svg',
                     route: '/about',
                     art: 'infos.svg',
-                    desc: 'N\'hésitez pas à me contacter si mon profil vous intéresse'
                 }
             ],
             isDragging: false,

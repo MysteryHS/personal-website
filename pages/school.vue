@@ -26,40 +26,6 @@ definePageMeta({
 })
 
 export default {
-    data() {
-        return {
-            timelineItems: [
-                {
-                    title: '2017-2018',
-                    place: 'Lycée Yves Thépot',
-                    desc: 'Bac Scientifique',
-                    option: 'Science de l\'ingénieur',
-                    result: 'Mention Très bien'
-                },
-                {
-                    title: '2018-2020',
-                    place: 'Université de Rennes 1',
-                    desc: 'Licence de Mathématiques',
-                    option: 'Option défi Mathématiques',
-                    result: 'Mention Bien'
-                },
-                {
-                    title: '2020-2021',
-                    place: 'Université de Caen',
-                    desc: 'Licence d\'Informatique',
-                    option: 'Option Intelligence Artificielle',
-                    result: 'Mention Bien'
-                },
-                {
-                    title: '2021-2024',
-                    place: 'ENSICAEN',
-                    desc: 'Ingénieur Informatique',
-                    option: '',
-                    result: 'En cours'
-                }
-            ]
-        }
-    }
 }
 </script>
 

@@ -51,11 +51,6 @@ export default {
         return {
             projects: [
                 {
-                    title: 'Application mobile Adoka Mini',
-                    motivation: 'Une application mobile créée lors de mon stage en Licence 3 dans l\'entreprise Amifor pour mettre en avant leur application web',
-                    description: `Cette application est une version simplifiée de leur application web Adoka, qui permet de passer des tests pour connaître
-                    ses intelligences principales (Logico-Mathématique, Verbale, etc.. ). Celles-ci permettent d'adapter les enseignements en fonction des 
-                    intelligences les plus présentes dans un groupe.`,
                     tech: [
                         { title: 'VueJS', logo: 'vuejs.png' },
                         { title: 'Ionic', logo: 'ionic.png' },
@@ -64,11 +59,6 @@ export default {
                     images: "Adoka_mini"
                 },
                 {
-                    'title': 'Application mobile Cliday',
-                    'motivation': `Une application mobile réalisée pour la bourse Coddity que j'ai remportée.`,
-                    'description': `Le sujet de la bourse était centrée sur le réchauffement climatique, j'ai donc développer une application qui permet de 
-                    réaliser un quiz avec de nouvelles questions quotidiennement sur des thèmes proches de celui du climat. Une page de statistiques avec un 
-                    graphe est disponible pour voir son amélioration si on s\'enregistre avec un compte.`,
                     'tech': ['Django', 'Flutter'],
                     tech: [
                         { title: 'Django', logo: 'django.png' },
