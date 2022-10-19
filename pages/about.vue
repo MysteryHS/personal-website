@@ -13,7 +13,7 @@
             </div>
             <div class="container">
                 <h5>CV</h5>
-                <a href="@/static/CV.pdf" download=""><button class="cvbut">CV.PDF</button></a>
+                <a href="/CV.pdf" download=""><button class="cvbut">CV.PDF</button></a>
             </div>
             <div class="container">
                 <h5>{{$t("about.phone")}}</h5>
