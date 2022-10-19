@@ -16,4 +16,7 @@ export default defineNuxtConfig({
             })
         ]
     },
+    meta: {
+        title: 'Ducastel Matéo\'s website',
+    }
 })
