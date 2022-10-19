@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt/config'
 import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 import { fileURLToPath } from 'url'
 import { resolve, dirname } from 'node:path'
@@ -15,5 +15,8 @@ export default defineNuxtConfig({
                 ]
             })
         ]
+    },
+    generate: {
+        dir: 'dist'
     }
 })
