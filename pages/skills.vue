@@ -2,19 +2,19 @@
     <div class="skillPage">
         <div class="grid">
             <div class="title">Soft Skills</div>
-            <div class="title">Compétences techniques</div>
-            <div class="title">Langues</div>
+            <div class="title">{{$t("skills.technical.title")}}</div>
+            <div class="title">{{$t("skills.languages.title")}}</div>
             <ul class="flex">
-                <li>Organisé</li>
-                <li>Dynamique</li>
-                <li>Force de proposition</li>
+                <li>{{$t("skills.soft.orga")}}</li>
+                <li>{{$t("skills.soft.dyna")}}</li>
+                <li>{{$t("skills.soft.propo")}}</li>
             </ul>
 
             <div class="threeContainer" ref="threeContainer"></div>
             <ul class="flex">
-                <li>Français : Langue maternelle</li>
-                <li>Anglais : TOEIC 945</li>
-                <li>Espagnol : Niveau courant - B2</li>
+                <li>{{$t("skills.languages.fr")}}</li>
+                <li>{{$t("skills.languages.en")}}</li>
+                <li>{{$t("skills.languages.es")}}</li>
             </ul>
         </div>
     </div>

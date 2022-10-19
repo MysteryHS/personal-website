@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <carousel class="carousel" ref="myCarousel">
-            <slide v-for="slide of projects" class="slide" :key="slide">
-                <h1 class="title">{{ slide.title }}</h1>
+            <slide v-for="(slide, index) in projects" class="slide" :key="slide">
+                <h1 class="title">{{ $t(`projects.${index}.title`) }}</h1>
                 <div class="contentContainer">
                     <div class="placeHolder">
                         <img class="techLogo" v-for="i in 3" :key="i" :src="`/assets/projects/${slide.images}${i}.png`"
@@ -10,8 +10,8 @@
 
                     </div>
                     <div class="textContainer">
-                        <p>{{ slide.motivation }}</p>
-                        <p>{{ slide.description }}</p>
+                        <p>{{ $t(`projects.${index}.motivation`) }}</p>
+                        <p>{{ $t(`projects.${index}.desc`) }}</p>
                         <div class="techContainer">
                             <div v-for="tech of slide.tech" class="tech" :key="tech">
                                 <p>{{ tech.title }}</p>

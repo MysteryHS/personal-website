@@ -10,7 +10,7 @@
         <div class="bottomContainer" @mousemove="onMouseMove($event)" @mousedown="startDrag($event)">
             <div class="cardContainer">
                 <Card v-for="(item, index) in cards" :key="index" :id="item.id" :logo="item.logo" :art="item.art"
-                    :cardText="item.desc" :cardTitle="item.title" class="smallCard" :style="{
+                    :cardText="index" :cardTitle="index" class="smallCard" :style="{
                         'transform': `rotate(${getTransform(item.id)}deg) translateX(${getPositionXOnDrag(item.id)}px) translateY(${getPositionYOnDrag(item.id)}px)`,
                         ...getPlayedStyle(item.id),
                     
@@ -24,9 +24,8 @@
                     ]" />
             </div>
             <div class="cardContainer">
-                <Card v-for="(item, index) in cards" :key="index" :logo="item.logo" :cardTitle="item.title"
-                    :cardText="item.desc" :art="item.art" class="bigCard inHand"
-                    :class="[getOpacityBigCard(item.id)]" />
+                <Card v-for="(item, index) in cards" :key="index" :logo="item.logo" :cardTitle="index" :cardText="index"
+                    :art="item.art" class="bigCard inHand" :class="[getOpacityBigCard(item.id)]" />
             </div>
         </div>
     </div>
@@ -82,7 +81,7 @@ export default {
                     logo: 'profil.svg',
                     route: '/about',
                     art: 'infos.svg',
-                    desc: 'M\'hésitez pas à me contacter si mon profil vous intéresse'
+                    desc: 'N\'hésitez pas à me contacter si mon profil vous intéresse'
                 }
             ],
             isDragging: false,

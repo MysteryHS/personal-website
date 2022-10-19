@@ -1,21 +1,19 @@
 <template>
     <div class="mainContainer">
-        <h1 class="h1">Parcours Scolaire</h1>
+        <h1 class="h1">{{$t('school.title')}}</h1>
         <div class="container">
-            <div v-for="(item, index) in timelineItems" :key="index">
+            <div class="item" v-for="(item, index) in 4" :key="index">
                 <div class="before-arrow"></div>
                 <div class="after-arrow"></div>
                 <div class="arrow">
-                    <div class="title">{{ item.title }}</div>
+                    <div class="title">{{ $t(`school.data.${index}.title`) }}</div>
                 </div>
-                <div class="bottom">
-                    <ul>
-                        <li v-if="item.place">{{ item.place }}</li>
-                        <li v-if="item.desc">{{ item.desc }}</li>
-                        <li v-if="item.option">{{ item.option }}</li>
-                        <li v-if="item.result">{{ item.result }}</li>
-                    </ul>
-                </div>
+                <ul>
+                    <li v-if="$t(`school.data.${index}.place`)">{{ $t(`school.data.${index}.place`) }}</li>
+                    <li v-if="$t(`school.data.${index}.desc`)">{{ $t(`school.data.${index}.desc`) }}</li>
+                    <li v-if="$t(`school.data.${index}.option`)">{{ $t(`school.data.${index}.option`) }}</li>
+                    <li v-if="$t(`school.data.${index}.result`)">{{ $t(`school.data.${index}.result`)}}</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -73,10 +71,13 @@ export default {
     align-items: center;
 }
 
+.item {
+    width: 300px;
+}
+
 .title {
     color: var(--text);
     font-size: x-large;
-    width: 100%;
     padding-top: 35.5px;
     padding-left: 70px;
     position: relative;
@@ -111,20 +112,15 @@ export default {
     position: absolute;
 }
 
-.bottom {
+ul {
+    margin: 0 auto;
     height: 250px;
     width: 70%;
+    display: flex;
     border-left: 5px solid var(--tertiary);
     margin-left: 25%;
-    color: var(--text);
-}
-
-ul {
-    margin: 0;
-
-    height: 100%;
-    display: flex;
     flex-direction: column;
+    color: var(--text);
     justify-content: space-around;
 }
 

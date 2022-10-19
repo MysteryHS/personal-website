@@ -6,8 +6,8 @@
             <img :src="logoURL" class="logo" />
         </div>
         <div class="textContainer">
-            <p class="title">{{  cardTitle  }}</p>
-            <p class="description">{{  cardText  }}</p>
+            <p class="title">{{ $t(`card.data.${cardTitle}.title`) }}</p>
+            <p class="description">{{ $t(`card.data.${cardTitle}.desc`) }}</p>
         </div>
     </div>
 </template>
@@ -17,11 +17,11 @@
 export default {
     props: {
         cardTitle: {
-            type: String,
+            type: Number,
             required: true,
         },
         cardText: {
-            type: String,
+            type: Number,
             required: false,
         },
         logo: {

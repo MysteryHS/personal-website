@@ -1,16 +1,14 @@
 <template>
     <div class="page">
-        <h1 class="title">Contactez moi</h1>
-        <h3 class="subtitle">Pour construire un site web, une application mobile, si mon profil vous intéresse ou
-            simplement pour discuter !
-        </h3>
+        <h1 class="title">{{$t("about.contact")}}</h1>
+        <h3 class="subtitle">{{$t("about.desc")}}</h3>
         <div class="info">
             <div class="container">
-                <h5>EMAIL</h5>
+                <h5>{{$t("about.mail")}}</h5>
                 <p>{{ mail.start + '@' + mail.end }}</p>
             </div>
             <div class="container">
-                <h5>ADRESSE</h5>
+                <h5>{{$t("about.adress")}}</h5>
                 <p>Caen, France</p>
             </div>
             <div class="container">
@@ -18,11 +16,11 @@
                 <a href="@/static/CV.pdf" download=""><button class="cvbut">CV.PDF</button></a>
             </div>
             <div class="container">
-                <h5>TELEPHONE</h5>
+                <h5>{{$t("about.phone")}}</h5>
                 <p>06.47.73.29.77</p>
             </div>
             <div class="container">
-                <h5>SITES</h5>
+                <h5>{{$t("about.other")}}</h5>
                 <div>
                     <a href="https://github.com/MysteryHS"><img class="logo" src="~/assets/logos/github.png"
                             alt="" /></a>
@@ -65,7 +63,7 @@ export default {
 .info {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
+    width: 75rem;
 }
 
 h5 {

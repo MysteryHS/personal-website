@@ -1,9 +1,9 @@
 <template>
   <div class="pres">
-    <p class="heading">{{ $t('hello', { name: 'vue-i18n' }) }}</p>
-    <p>Je suis Ducastel Matéo, étudiant en informatique à l'ENSICAEN</p>
-    <p>Découvrez mon CV en déplaçant les cartes</p>
-    <p>Ou téléchargez le en <a href="/CV.pdf" download="">cliquant ici</a></p>
+    <p class="heading">{{ $t('hello') }}</p>
+    <p>{{$t('index.pres')}}</p>
+    <p>{{$t('index.move')}}</p>
+    <p>{{$t('index.download1')}}<a href="/CV.pdf" download="">{{$t('index.download2')}}</a></p>
   </div>
 </template>
 

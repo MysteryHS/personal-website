@@ -1,4 +1,98 @@
 {
     "hello": "Welcome!",
-    "language": "Language"
+    "index": {
+        "pres": "I'm Ducastel Matéo, computer science at ENSICAEN in Normandie, France",
+        "move": "Discover my CV by moving the cards",
+        "download1": "Or download it by ",
+        "download2": "clicking here"
+    },
+    "school": {
+        "title": "Studies",
+        "data": [
+            {
+                "title": "2017-2018",
+                "place": "Yves Thépot High School",
+                "desc": "Scientific A Diploma",
+                "option": "Engineering",
+                "result": "With high honors"
+            },
+            {
+                "title": "2018-2020",
+                "place": "University of Rennes 1",
+                "desc": "Bachelor's degree in Mathematics",
+                "option": "Mathematics challenge option",
+                "result": "With honors"
+            },
+            {
+                "title": "2020-2021",
+                "place": "University of Caen",
+                "desc": "Bachelor's degree in Computer science",
+                "option": "Artificial intelligence option",
+                "result": "With Honors"
+            },
+            {
+                "title": "2021-2024",
+                "place": "ENSICAEN",
+                "desc": "Computer science Engineer",
+                "option": "",
+                "result": "On going"
+            }
+        ]
+    },
+    "about": {
+        "contact": "Contact me",
+        "desc": "To build a website, a mobile app, if my profil interest you or simply to discuss !",
+        "mail": "MAIL",
+        "adress": "ADRESS",
+        "phone": "PHONE",
+        "other": "OTHER"
+    },
+    "skills": {
+        "soft": {
+            "orga": "Organised",
+            "dyna": "Dynamic",
+            "propo": "Proposal Strength"
+        },
+        "technical": {
+            "title": "Technical skills"
+        },
+        "languages": {
+            "title": "Languages",
+            "fr": "French: Native",
+            "en": "English: TOEIC 945",
+            "es": "Spanish: Medium level - B2"
+        }
+    },
+    "card": {
+        "data": [
+            {
+                "title": "Projects",
+                "desc": "Browse my professional and personal projects"
+            },
+            {
+                "title": "Education",
+                "desc": "Discover my educational background and my diplomas"
+            },
+            {
+                "title": "Skills",
+                "desc": "Explore my technical and soft skills"
+            },
+            {
+                "title": "Information",
+                "desc": "Do not hesitate to contact me if my profile interests you"
+            }
+        ]
+    },
+    "projects": [
+        {
+            "title": "Adoka Mini mobile App",
+            "motivation": "A mobile application created during my Bachelor 3 internship in the company Amifor to promote their web application.",
+            "desc": "This application is a simplified version of their web application Adoka, which allows you to take tests to know your main intelligences (Logic-Mathematical, Verbal, etc.. ). These tests allow you to adapt your teaching according to the most common intelligences in a group."
+        },
+        {
+            "title": "Cliday mobile App",
+            "motivation": "A mobile application made for the Coddity grant I won.",
+            "desc": "The topic of the contest was focused on global warming, so I developed an application that allows you to make a quiz with new questions daily on topics close to the climate. A statistics page with a diagram is available to see its improvement if you register with an account."
+        }
+    ]
 }
