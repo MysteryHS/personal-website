@@ -16,7 +16,4 @@ export default defineNuxtConfig({
             })
         ]
     },
-    generate: {
-        dir: 'dist'
-    }
 })
