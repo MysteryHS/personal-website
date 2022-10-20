@@ -1,5 +1,8 @@
 <template>
     <div class="main" @mouseup="stopDrag()" @mousemove="drag($event)">
+        <NuxtLink to="/">
+            <img src="/assets/logos/home.png" alt="home logo" class="home" />
+        </NuxtLink>
         <div class="language">
             <span class="fr lang" :class="{filter: !isFrench}" @click="onToggleLanguage('fr')">🇫🇷</span>
             <span class="en lang" :class="{filter: isFrench}" @click="onToggleLanguage('en')">🇬🇧</span>
@@ -8,9 +11,12 @@
             <slot />
         </div>
         <div class="bottomContainer" @mousemove="onMouseMove($event)" @mousedown="startDrag($event)">
+            <button class="reloadButton" @click="addCardsBack">
+                <img src="/assets/logos/reload.png" class="reload" alt="reload logo">
+            </button>
             <div class="cardContainer">
                 <Card v-for="(item, index) in cards" :key="index" :id="item.id" :logo="item.logo" :art="item.art"
-                    :cardText="index" :cardTitle="index" class="smallCard" :style="{
+                    :cardId="item.id" class="smallCard" :style="{
                         'transform': `rotate(${getTransform(item.id)}deg) translateX(${getPositionXOnDrag(item.id)}px) translateY(${getPositionYOnDrag(item.id)}px)`,
                         ...getPlayedStyle(item.id),
                     
@@ -24,8 +30,8 @@
                     ]" />
             </div>
             <div class="cardContainer">
-                <Card v-for="(item, index) in cards" :key="index" :logo="item.logo" :cardTitle="index" :cardText="index"
-                    :art="item.art" class="bigCard inHand" :class="[getOpacityBigCard(item.id)]" />
+                <Card v-for="(item, index) in cards" :key="index" :logo="item.logo" :cardId="item.id" :art="item.art"
+                    class="bigCard inHand" :class="[getOpacityBigCard(item.id)]" />
             </div>
         </div>
     </div>
@@ -76,6 +82,7 @@ export default {
                     art: 'infos.svg',
                 }
             ],
+            removedCard: [],
             isDragging: false,
             startingCoorAbs: {
                 x: 0,
@@ -226,9 +233,10 @@ export default {
                     let index = this.cards.findIndex(item => item.id == this.idPlayed)
                     let size = this.cards.length
                     this.currentCoorAbs.x += ((size - 1 - index) - index) * (this.marginMiddle + this.convertRemToPixels(1))
-                    this.$router.push({ path: this.cards[this.cards.findIndex(item => item.id == this.idPlayed)].route });
+                    this.$router.push({ path: this.cards[index].route });
                     setTimeout(() => {
-                        this.cards.splice(this.cards.findIndex(item => item.id == this.idPlayed), 1)
+                        this.removedCard.push(this.cards[index])
+                        this.cards.splice(index, 1)
                         this.currentCoorAbs.x = 0
                         this.currentCoorAbs.y = 0
                         this.idPlayable = -1
@@ -269,6 +277,11 @@ export default {
                 }
             }
         },
+        addCardsBack() {
+            this.cards.push(...this.removedCard)
+            this.cards.sort((n1, n2) => n1.id - n2.id)
+            this.removedCard = []
+        }
     }
 }
 </script>
@@ -312,6 +325,7 @@ body {
     position: absolute;
     right: 10px;
     top: 10px;
+    z-index: 50;
 }
 
 .lang {
@@ -404,5 +418,31 @@ body {
 
 .originRight {
     transform-origin: 100% 100%;
+}
+
+.reloadButton {
+    position: absolute;
+    right: 50px;
+    bottom: 200px;
+    height: 50px;
+    border-radius: 100%;
+    aspect-ratio: 1;
+    background-color: #ffc300;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.home {
+    height: 40px;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 50;
+}
+
+.reload {
+    height: 100%;
+    aspect-ratio: 1;
 }
 </style>

@@ -6,8 +6,8 @@
             <img :src="logoURL" class="logo" />
         </div>
         <div class="textContainer">
-            <p class="title">{{ $t(`card.data.${cardTitle}.title`) }}</p>
-            <p class="description">{{ $t(`card.data.${cardTitle}.desc`) }}</p>
+            <p class="title">{{ $t(`card.data.${cardId-1}.title`) }}</p>
+            <p class="description">{{ $t(`card.data.${cardId-1}.desc`) }}</p>
         </div>
     </div>
 </template>
@@ -16,13 +16,9 @@
 
 export default {
     props: {
-        cardTitle: {
+        cardId: {
             type: Number,
             required: true,
-        },
-        cardText: {
-            type: Number,
-            required: false,
         },
         logo: {
             type: String,
@@ -32,7 +28,7 @@ export default {
             type: String,
             required: true,
         }
-    },//['cardTitle', 'cardText', 'logo', 'art']
+    },
     computed: {
         logoURL() {
             return this.logo != undefined ? `/assets/logos/${this.logo}` : ''
