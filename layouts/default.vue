@@ -430,8 +430,8 @@ body {
     right: 50px;
     bottom: 200px;
     height: 50px;
+    width: 50px;
     border-radius: 100%;
-    aspect-ratio: 1;
     background-color: #ffc300;
     cursor: pointer;
     z-index: 50;
@@ -450,6 +450,7 @@ body {
 .reload {
     height: 100%;
     aspect-ratio: 1;
+    transform: translateX(-2px);
 }
 
 .rotate {
@@ -458,11 +459,11 @@ body {
 
 @keyframes rotate {
     0% {
-        transform: rotate(0deg);
+        transform: translateX(-2px) rotate(0deg);
     }
 
     100% {
-        transform: rotate(360deg);
+        transform: translateX(-2px) rotate(360deg);
     }
 }
 </style>
