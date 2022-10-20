@@ -12,7 +12,7 @@
         </div>
         <div class="bottomContainer" @mousemove="onMouseMove($event)" @mousedown="startDrag($event)">
             <button class="reloadButton" @click="addCardsBack">
-                <img src="/assets/logos/reload.png" class="reload" alt="reload logo">
+                <img src="/assets/logos/reload.png" class="reload" :class="{rotate: rotateButton}" alt="reload logo">
             </button>
             <div class="cardContainer">
                 <Card v-for="(item, index) in cards" :key="index" :id="item.id" :logo="item.logo" :art="item.art"
@@ -84,6 +84,7 @@ export default {
             ],
             removedCard: [],
             isDragging: false,
+            rotateButton: false,
             startingCoorAbs: {
                 x: 0,
                 y: 0,
@@ -278,6 +279,10 @@ export default {
             }
         },
         addCardsBack() {
+            this.rotateButton = true
+            setTimeout(() => {
+                this.rotateButton = false
+            }, 500)
             this.cards.push(...this.removedCard)
             this.cards.sort((n1, n2) => n1.id - n2.id)
             this.removedCard = []
@@ -430,6 +435,7 @@ body {
     background-color: #ffc300;
     cursor: pointer;
     z-index: 50;
+    border: none;
 }
 
 .home {
@@ -444,5 +450,19 @@ body {
 .reload {
     height: 100%;
     aspect-ratio: 1;
+}
+
+.rotate {
+    animation: rotate .5s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 </style>
